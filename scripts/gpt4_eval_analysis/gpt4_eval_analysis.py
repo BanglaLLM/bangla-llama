@@ -106,4 +106,4 @@ results_avg_minmax.rename(columns={'model1': model1_name, 'model2': model2_name}
 results_avg_simple.to_csv(os.path.join(args.output_path, f"{args.task_name}_average_scores_simple.csv"))
 results_avg_minmax.to_csv(os.path.join(args.output_path, f"{args.task_name}_average_scores_minmax.csv"))
 
-print("Score analysis results saved.")
+print(f"Score analysis results saved to {args.output_path}.")

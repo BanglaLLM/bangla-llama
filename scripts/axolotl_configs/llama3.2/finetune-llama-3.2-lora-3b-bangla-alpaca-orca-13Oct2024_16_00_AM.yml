@@ -1,0 +1,85 @@
+base_model: BanglaLLM/BanglaLLama-3.2-3b-unlop-culturax-base-v0.0.3
+model_type: LlamaForCausalLM
+  #adapter: /workspace/outputs/llama-3-8b-pretrain-uonlp-culturax-24Jul2024_1_04am/checkpoint-10000/adapter_model.safetensors
+tokenizer_type: AutoTokenizer
+
+load_in_8bit: false
+load_in_4bit: false
+strict: false
+
+datasets:
+  - path: BanglaLLM/bangla-alpaca-orca 
+    type: alpaca
+  #max_steps: 10000
+  #pretraining_dataset:
+  #- path: "uonlp/CulturaX"
+  #  name: bn
+  #  type: pretrain
+  #dataset_prepared_path: /workspace/datasets/last_run_prepared_uonlp_CulturaX_bn_24Jul2024_1_04am
+val_set_size: 0.05
+output_dir: /workspace/outputs/llama-3.2-3b-finetune-bangla-alpaca-orca-13Oct2024_16_00_AM
+
+# push to hf hub
+# hub_model_id: BanglaLLM/BanglaLLama-3.2-3b-bangla-alpaca-orca-instruct-v0.0.1
+# hub_strategy: end
+
+sequence_len: 4096
+sample_packing: true
+eval_sample_packing: false
+pad_to_sequence_len: true
+remove_unused_columns: true
+
+  #peft: true
+adapter: lora
+lora_model_dir:
+#lora_model_dir: /workspace/outputs/llama-3-8b-pretrain-uonlp-culturax-24Jul2024_1_04am/checkpoint-10000
+lora_r: 32
+lora_alpha: 16
+lora_dropout: 0.05
+lora_target_linear: true
+lora_fan_in_fan_out:
+lora_modules_to_save:
+  - embed_tokens
+  - lm_head
+
+wandb_project: banglallm-training
+wandb_entity: banglallm
+wandb_watch:
+wandb_name: balglallm-training-llama3.2-3b-finetuning-13Oct2024_16_00PM 
+wandb_run_id: balglallm-training-llama3.2-3b-finetuning-13Oct2024_16_00_PM-id-1
+wandb_log_model: checkpoint
+
+gradient_accumulation_steps: 8
+micro_batch_size: 1
+num_epochs: 1
+optimizer: adamw_bnb_8bit
+lr_scheduler: cosine
+learning_rate: 0.0002
+
+train_on_inputs: false
+group_by_length: false
+bf16: auto
+fp16:
+tf32: false
+
+gradient_checkpointing: true
+early_stopping_patience:
+resume_from_checkpoint:
+local_rank:
+logging_steps: 1
+xformers_attention:
+flash_attention: true
+s2_attention:
+
+warmup_steps: 10
+evals_per_epoch: 4
+eval_table_size:
+eval_max_new_tokens: 128
+saves_per_epoch: 2
+debug:
+deepspeed:
+weight_decay: 0.0
+fsdp:
+fsdp_config:
+special_tokens:
+   pad_token: <|end_of_text|>

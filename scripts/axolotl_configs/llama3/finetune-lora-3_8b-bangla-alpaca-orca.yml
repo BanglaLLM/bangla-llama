@@ -1,0 +1,83 @@
+#base_model: meta-llama/Meta-Llama-3-8B
+#base_model: /workspace/outputs/llama-3-8b-pretrain-uonlp-culturax-24Jul2024_1_04am
+base_model: BanglaLLM/BanglaLLama-3-8b-unolp-culturax-base-v0.0.1
+model_type: LlamaForCausalLM
+  #adapter: /workspace/outputs/llama-3-8b-pretrain-uonlp-culturax-24Jul2024_1_04am/checkpoint-10000/adapter_model.safetensors
+tokenizer_type: AutoTokenizer
+
+load_in_8bit: false
+load_in_4bit: false
+strict: false
+
+datasets:
+  #- path: mhenrichsen/alpaca_2k_test
+  - path: BanglaLLM/bangla-alpaca-orca 
+    type: alpaca
+  #max_steps: 10000
+  #pretraining_dataset:
+  #- path: "uonlp/CulturaX"
+  #  name: bn
+  #  type: pretrain
+  #dataset_prepared_path: /workspace/datasets/last_run_prepared_uonlp_CulturaX_bn_24Jul2024_1_04am
+val_set_size: 0.05
+output_dir: /workspace/outputs/llama-3-8b-finetune-uonlp-culturax-09Sept2024_9_20AM
+
+sequence_len: 4096
+sample_packing: true
+eval_sample_packing: false
+pad_to_sequence_len: true
+remove_unused_columns: true
+
+  #peft: true
+adapter: lora
+lora_model_dir:
+#lora_model_dir: /workspace/outputs/llama-3-8b-pretrain-uonlp-culturax-24Jul2024_1_04am/checkpoint-10000
+lora_r: 32
+lora_alpha: 16
+lora_dropout: 0.05
+lora_target_linear: true
+lora_fan_in_fan_out:
+lora_modules_to_save:
+  - embed_tokens
+  - lm_head
+
+wandb_project:
+wandb_entity:
+wandb_watch:
+wandb_name:
+wandb_log_model:
+
+gradient_accumulation_steps: 8
+micro_batch_size: 1
+num_epochs: 1
+optimizer: adamw_bnb_8bit
+lr_scheduler: cosine
+learning_rate: 0.0002
+
+train_on_inputs: false
+group_by_length: false
+bf16: auto
+fp16:
+tf32: false
+
+gradient_checkpointing: true
+early_stopping_patience:
+resume_from_checkpoint:
+local_rank:
+logging_steps: 1
+xformers_attention:
+flash_attention: true
+s2_attention:
+
+warmup_steps: 10
+evals_per_epoch: 4
+eval_table_size:
+eval_max_new_tokens: 128
+saves_per_epoch: 1
+debug:
+deepspeed:
+weight_decay: 0.0
+fsdp:
+fsdp_config:
+special_tokens:
+   pad_token: <|end_of_text|>

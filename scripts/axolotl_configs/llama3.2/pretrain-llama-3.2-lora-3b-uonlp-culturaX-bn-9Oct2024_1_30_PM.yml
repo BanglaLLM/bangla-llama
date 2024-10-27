@@ -1,0 +1,95 @@
+base_model: meta-llama/Llama-3.2-3B
+model_type: LlamaForCausalLM
+  #processor_type: AutoProcessor
+tokenizer_type: AutoTokenizer
+
+#skip_prepare_dataset: true
+#remove_unused_columns: false
+#sample_packing: false
+
+load_in_8bit: false
+load_in_4bit: false
+strict: false
+
+# datasets:
+#   #- path: mhenrichsen/alpaca_2k_test
+#   - path: yahma/alpaca-cleaned 
+#     type: alpaca
+max_steps: 10000
+#chat_template: llama3_2_vision
+pretraining_dataset:
+  - path: "uonlp/CulturaX"
+    name: bn
+    type: pretrain
+dataset_prepared_path: /workspace/datasets/last_run_prepared_pretrain_llama3.2-3b_uonlp_CulturaX_bn_9Oct2024_1_30_PM
+val_set_size: 0.00
+output_dir: /workspace/outputs/llama-3.2-11b-pretrain-uonlp-culturax-6Oct2024_10_20_AM
+
+# push to hf hub
+hub_model_id: BanglaLLM/BanglaLLama-3.2-11b-3b-unolp-culturax-base-v0.0.2
+hub_strategy: end
+
+#sequence_len: 4096
+sequence_len: 8192
+pad_to_sequence_len: false
+
+# all below changed above
+sample_packing: true 
+eval_sample_packing: false
+pad_to_sequence_len: true
+remove_unused_columns: true
+
+adapter: lora
+lora_model_dir:
+lora_r: 32
+lora_alpha: 16
+lora_dropout: 0.05
+#lora_target_modules: 'language_model.model.layers.[\d]+.(mlp|cross_attn|self_attn).(up|down|gate|q|k|v|o)_proj'
+lora_target_linear: true
+lora_fan_in_fan_out:
+lora_modules_to_save:
+  - embed_tokens
+  - lm_head
+
+wandb_project: banglallm-training
+wandb_entity: banglallm
+wandb_watch:
+wandb_name: balglallm-training-llama3.2-3b-pretraining-9Oct2024_1_30_PM
+wandb_run_id: balglallm-training-llama3.2-3b-pretraining-9Oct2024_1_30_PM-id-1
+wandb_log_model: checkpoint
+
+gradient_accumulation_steps: 4 #8
+micro_batch_size: 1
+num_epochs: 1
+optimizer: adamw_bnb_8bit
+lr_scheduler: cosine
+learning_rate: 0.0002
+
+train_on_inputs: false
+group_by_length: false
+bf16: auto
+fp16:
+tf32: false
+
+gradient_checkpointing: true
+early_stopping_patience:
+resume_from_checkpoint:
+local_rank:
+logging_steps: 1
+xformers_attention:
+flash_attention: true
+s2_attention:
+
+#warmup_steps: 10
+warmup_ratio: 0.1
+evals_per_epoch: 4
+eval_table_size:
+#eval_max_new_tokens: 128
+saves_per_epoch: 1
+debug:
+deepspeed:
+weight_decay: 0.0
+fsdp:
+fsdp_config:
+special_tokens:
+   pad_token: <|end_of_text|>

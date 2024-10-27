@@ -1,0 +1,137 @@
+
+Table1: BanglaLLama 2-7b-Instruct,MetaLLama 2-7b-Hf score comparison with minmax averaging method
+---------------------------------------------------------------------------------------------------
+Category,BanglaLLama 2-7b-Instruct,MetaLLama 2-7b-Hf
+coding,13.076923076923077,5.153846153846154
+entertainment,8.333333333333334,1.1111111111111112
+ethics,10.125,3.75
+generation,16.5625,3.375
+literature,12.222222222222221,1.7777777777777777
+open_qa,24.210526315789473,4.2631578947368425
+qa,13.333333333333334,1.8
+reasoning,13.75,5.0
+translation,11.222222222222221,2.111111111111111
+Others,10.0,1.0
+
+
+Table2: BanglaLLama 2-7b-Instruct,MetaLLama 2-7b-Hf score comparison with simple averaging method
+---------------------------------------------------------------------------------------------------
+Category,BanglaLLama 2-7b-Instruct,MetaLLama 2-7b-Hf
+coding,11.846153846153847,7.205128205128205
+entertainment,6.592592592592593,2.5925925925925926
+ethics,7.666666666666667,5.833333333333333
+generation,14.708333333333334,4.5625
+literature,10.185185185185185,2.925925925925926
+open_qa,20.140350877192983,5.0
+qa,10.844444444444445,2.933333333333333
+reasoning,12.083333333333334,5.933333333333334
+translation,9.222222222222221,3.8518518518518516
+Others,10.0,3.4166666666666665
+
+Table3: BanglaLLama 3.1-8b-Instruct,MetaLLama 3.1-8b-Instruct score comparison with minmax averaging method
+-----------------------------------------------------------------------------------------------------
+Category,BanglaLLama 3.1-8b-Instruct,MetaLLama 3.1-8b-Instruct
+coding,48.63636363636363,63.63636363636363
+entertainment,41.25,17.5
+ethics,54.5,28.875
+generation,73.625,34.0625
+literature,46.111111111111114,21.666666666666668
+open_qa,73.15789473684211,39.73684210526316
+qa,67.33333333333333,31.0
+reasoning,76.5,33.0
+translation,48.75,53.75
+Others,40.0,10.0
+
+Table4: BanglaLLama 3.1-8b-Instruct,MetaLLama 3.1-8b-Instruct score comparison with simple averaging method
+-----------------------------------------------------------------------------------------------------
+Category,BanglaLLama 3.1-8b-Instruct,MetaLLama 3.1-8b-Instruct
+coding,38.4375,67.34375
+entertainment,37.083333333333336,21.041666666666668
+ethics,36.833333333333336,30.333333333333332
+generation,64.1875,37.291666666666664
+literature,35.370370370370374,24.62962962962963
+open_qa,64.82456140350877,45.35087719298246
+qa,59.111111111111114,35.0
+reasoning,63.916666666666664,37.75
+translation,42.083333333333336,60.416666666666664
+Others,42.5,38.333333333333336
+
+Table5: BanglaLLama 3-8b-Instruct,MetaLLama 3-8b-Instruct score comparison with minmax averaging method
+-----------------------------------------------------------------------------------------------------
+Category,BanglaLLama 3-8b-Instruct,MetaLLama 3-8b-Instruct
+coding,41.36363636363637,66.36363636363636
+entertainment,45.0,28.5
+ethics,14.375,29.875
+generation,74.6875,55.3125
+literature,56.111111111111114,31.77777777777778
+open_qa,74.21052631578948,40.421052631578945
+qa,71.66666666666667,31.333333333333332
+reasoning,89.25,48.1
+translation,66.25,27.5
+Others,70.0,70.0
+
+Table6: BanglaLLama 3-8b-Instruct,MetaLLama 3-8b-Hf score comparison with simple averaging method
+-----------------------------------------------------------------------------------------------------
+Category,BanglaLLama 3-8b-Instruct,MetaLLama 3-8b-Instruct
+coding,32.5,68.33333333333333
+entertainment,43.958333333333336,33.375
+ethics,16.583333333333332,32.25
+generation,66.45833333333333,57.916666666666664
+literature,41.851851851851855,36.333333333333336
+open_qa,66.96491228070175,43.40350877192982
+qa,62.55555555555556,34.888888888888886
+reasoning,82.75,54.833333333333336
+translation,57.916666666666664,37.5
+Others,34.166666666666664,70.16666666666667
+
+
+Table7: BanglaLLama 3.2-1b-Instruct, MetaLLama 3.2-1b-Instruct score comparison with simple averaging method
+-----------------------------------------------------------------------------------------------------
+Category,BanglaLLama 3.2-1b-Instruct,MetaLLama 3.2-1b-Instruct
+coding,10.23076923076923,34.0
+entertainment,11.703703703703704,5.851851851851852
+ethics,6.958333333333333,5.041666666666667
+generation,18.75,8.291666666666666
+literature,15.185185185185185,6.851851851851852
+open_qa,27.140350877192983,9.157894736842104
+qa,20.555555555555557,7.4222222222222225
+reasoning,25.333333333333332,18.066666666666666
+translation,21.666666666666668,9.583333333333334
+Others,54.166666666666664,8.333333333333334
+
+Table8: BanglaLLama 3.2-1b-Instruct, MetaLLama 3.2-1b-Instruct score comparison with minmax averaging method
+---------------------------------------------------------------------------------------------------
+Category,BanglaLLama 3.2-1b-Instruct,MetaLLama 3.2-1b-Instruct
+coding,12.307692307692308,30.0
+entertainment,17.77777777777778,4.555555555555555
+ethics,8.75,3.25
+generation,26.25,7.5
+literature,22.22222222222222,5.777777777777778
+open_qa,33.421052631578945,7.368421052631579
+qa,27.666666666666668,5.2
+reasoning,38.5,11.2
+translation,30.0,9.25
+Others,85.0,10.0
+
+Table9: BanglaLLama 3.2-3b-Instruct, MetaLLama 3.2-3b-Instruct score comparison with simple averaging method
+---------------------------------------------------------------------------------------------------
+
+Category,BanglaLLama 3.2-3b-Instruct,MetaLLama 3.2-3b-Instruct
+coding,19.636363636363637,52.0
+entertainment,27.63888888888889,19.0
+ethics,8.866666666666667,17.866666666666667
+generation,23.75,39.375
+literature,13.444444444444445,16.666666666666668
+open_qa,31.105263157894736,31.842105263157894
+qa,17.4,17.133333333333333
+reasoning,40.3,34.5
+translation,16.77777777777778,17.333333333333332
+Others,11.166666666666666,17.166666666666668
+
+Table10: BanglaLLama 3.2-3b-Instruct, MetaLLama 3.2-3b-Instruct score comparison with minmax averaging method
+---------------------------------------------------------------------------------------------------
+Category,BanglaLLama 3.2-3b-Instruct,MetaLLama 3.2-3b-Instruct
+coding,28.846153846153847,48.07692307692308
+entertainment,38.888888888888886,14.0
+ethics,13.333333333333334,32.333333333333336
+

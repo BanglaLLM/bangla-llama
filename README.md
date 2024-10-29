@@ -4,8 +4,20 @@
 
 This repository contains the code and models for "Bangla-Llama", a project focused on enhancing the performance of language models for the Bangla language. It builds upon the open-source LLaMA model, introducing additional Bangla tokens and employing the LoRA methodology for efficient training. Please read the technical report for more details.
 
+## Axolotl Configurations
 
-# Model Management and Evaluation Scripts
+The repository includes a set of configuration files for training and fine-tuning models using the Axolotl framework. These configurations are located in the `scripts/train/axolotl_configs` directory and are organized by model version and task type. Each configuration file specifies parameters such as the base model, datasets, training hyperparameters, and LoRA adapter settings.
+
+
+## Results
+
+The results from various models trained using these configurations are stored in the `results` directory. This directory contains evaluation metrics, model performance summaries, and comparison charts for different model versions and training setups.
+
+These results provide insights into the effectiveness of different configurations and training strategies, helping to guide future model development and optimization efforts.
+
+
+
+## Model Management and Evaluation Scripts
 
 This repository contains a set of scripts designed for managing, evaluating, and deploying machine learning models, specifically focusing on language models. The scripts are organized to handle different tasks such as inference, evaluation, and pushing models to the Hugging Face Hub.
 
